@@ -14,7 +14,9 @@ namespace ShutdownTimer
     {
         private DispatcherTimer countdownTimer;
         private DateTime targetTime;
+        private DateTime startTime;
         private bool isTimerRunning = false;
+        private int totalSeconds = 0;
 
         public MainWindow()
         {
@@ -33,7 +35,7 @@ namespace ShutdownTimer
             double minutes = nbMinutes.Value;
             double seconds = nbSeconds.Value;
 
-            int totalSeconds = (int)(hours * 3600 + minutes * 60 + seconds);
+            totalSeconds = (int)(hours * 3600 + minutes * 60 + seconds);
 
             if (totalSeconds == 0)
             {
@@ -44,15 +46,28 @@ namespace ShutdownTimer
 
             // Set target time
             targetTime = DateTime.Now.AddSeconds(totalSeconds);
+            startTime = DateTime.Now;
 
-            // Update UI
-            btnStart.IsEnabled = false;
-            btnCancel.IsEnabled = true;
-            miCancel.IsEnabled = true;
+            // Switch panels - Hide duration and control buttons, show countdown
+            DurationPanel.Visibility = Visibility.Collapsed;
+            ControlButtonsPanel.Visibility = Visibility.Collapsed;
             CountdownPanel.Visibility = Visibility.Visible;
 
-            // Reset countdown display color
-            txtCountdown.Foreground = new SolidColorBrush(Colors.Black);
+            // Update UI - Keep cancel button visible and enabled
+            btnStart.IsEnabled = false;
+            btnCancel.IsEnabled = true;
+            btnCancel.Visibility = Visibility.Visible;
+            miCancel.IsEnabled = true;
+
+            // Disable action selection during countdown
+            rbShutdown.IsEnabled = false;
+            rbRestart.IsEnabled = false;
+            rbSleep.IsEnabled = false;
+
+            // Reset countdown display
+            txtCountdown.Foreground = this.Foreground;
+            progressTimer.Value = 100;
+            txtTimeInfo.Text = "Timer running";
 
             // Start timer
             isTimerRunning = true;
@@ -60,7 +75,7 @@ namespace ShutdownTimer
 
             // Show notification
             TrayIcon.ShowBalloonTip("Shutdown Timer",
-                $"Timer started. {GetActionText()} will be executed in {totalSeconds} seconds.",
+                $"Timer started. {GetActionText()} will be executed in {FormatTime(totalSeconds)}.",
                 Hardcodet.Wpf.TaskbarNotification.BalloonIcon.Info);
 
             // Force UI update
@@ -72,6 +87,7 @@ namespace ShutdownTimer
             if (!isTimerRunning) return;
 
             TimeSpan remaining = targetTime - DateTime.Now;
+            TimeSpan elapsed = DateTime.Now - startTime;
 
             if (remaining.TotalSeconds <= 0)
             {
@@ -90,20 +106,26 @@ namespace ShutdownTimer
                 
                 txtCountdown.Text = timeText;
 
+                // Update progress bar
+                double progressPercentage = (remaining.TotalSeconds / totalSeconds) * 100;
+                progressTimer.Value = Math.Max(0, progressPercentage);
+
                 // Warning in last 10 seconds
                 if (remaining.TotalSeconds <= 10)
                 {
                     // Change color to red
-                    txtCountdown.Foreground = new SolidColorBrush(Colors.Red);
+                    txtCountdown.Foreground = Brushes.Red;
                     
                     // Flash effect for last 10 seconds
                     if ((int)remaining.TotalSeconds % 2 == 0)
                     {
-                        txtCountdown.FontWeight = FontWeights.Bold;
+                        txtCountdown.FontWeight = FontWeights.ExtraBold;
+                        txtTimeInfo.Text = "⚠️ WARNING! Action will execute soon!";
                     }
                     else
                     {
-                        txtCountdown.FontWeight = FontWeights.Normal;
+                        txtCountdown.FontWeight = FontWeights.Bold;
+                        txtTimeInfo.Text = $"⚠️ {GetActionText()} in {(int)remaining.TotalSeconds} seconds!";
                     }
 
                     // Play warning sound every 2 seconds in last 10 seconds
@@ -113,9 +135,10 @@ namespace ShutdownTimer
                         {
                             System.Media.SystemSounds.Exclamation.Play();
                         }
-                        catch
+                        catch (Exception ex)
                         {
-                            // Ignore sound errors
+                            // Log sound error but continue execution
+                            System.Diagnostics.Debug.WriteLine($"Warning sound could not be played: {ex.Message}");
                         }
                     }
 
@@ -127,11 +150,19 @@ namespace ShutdownTimer
                             Hardcodet.Wpf.TaskbarNotification.BalloonIcon.Warning);
                     }
                 }
+                else if (remaining.TotalSeconds <= 30)
+                {
+                    // Yellow warning for last 30 seconds
+                    txtCountdown.Foreground = Brushes.Orange;
+                    txtCountdown.FontWeight = FontWeights.Bold;
+                    txtTimeInfo.Text = $"⏰ {GetActionText()} in {(int)remaining.TotalSeconds} seconds";
+                }
                 else
                 {
-                    // Normal display
-                    txtCountdown.Foreground = new SolidColorBrush(Colors.Black);
+                    // Normal display - use system colors for theme consistency
+                    txtCountdown.Foreground = this.Foreground;
                     txtCountdown.FontWeight = FontWeights.Bold;
+                    txtTimeInfo.Text = $"{GetActionText()} in {timeText}";
                 }
 
                 // Update window title with remaining time
@@ -139,7 +170,7 @@ namespace ShutdownTimer
             }
         }
 
-        private void ExecuteAction()
+        private async void ExecuteAction()
         {
             string command = "";
             string args = "";
@@ -167,8 +198,8 @@ namespace ShutdownTimer
                     $"Executing {GetActionText()} now!",
                     Hardcodet.Wpf.TaskbarNotification.BalloonIcon.Warning);
 
-                // Wait a moment for the notification
-                System.Threading.Thread.Sleep(1000);
+                // Wait a moment for the notification without blocking UI
+                await System.Threading.Tasks.Task.Delay(1000);
 
                 Process.Start(new ProcessStartInfo
                 {
@@ -207,14 +238,31 @@ namespace ShutdownTimer
 
         private void ResetUI()
         {
+            // Switch panels back - Show duration and control buttons, hide countdown
+            DurationPanel.Visibility = Visibility.Visible;
+            ControlButtonsPanel.Visibility = Visibility.Visible;
+            CountdownPanel.Visibility = Visibility.Collapsed;
+
+            // Reset buttons - Cancel button stays visible
             btnStart.IsEnabled = true;
             btnCancel.IsEnabled = false;
+            btnCancel.Visibility = Visibility.Visible;
             miCancel.IsEnabled = false;
-            CountdownPanel.Visibility = Visibility.Collapsed;
+
+            // Re-enable action selection
+            rbShutdown.IsEnabled = true;
+            rbRestart.IsEnabled = true;
+            rbSleep.IsEnabled = true;
+
+            // Reset countdown display
             txtCountdown.Text = "00:00:00";
-            txtCountdown.Foreground = new SolidColorBrush(Colors.Black);
+            txtCountdown.Foreground = this.Foreground;
             txtCountdown.FontWeight = FontWeights.Bold;
+            progressTimer.Value = 100;
+            txtTimeInfo.Text = "Timer ready";
+            
             isTimerRunning = false;
+            totalSeconds = 0;
             
             // Reset window title
             this.Title = "Shutdown Timer";
@@ -295,6 +343,20 @@ namespace ShutdownTimer
                 return "Sleep mode";
 
             return "Unknown action";
+        }
+
+        private string FormatTime(int seconds)
+        {
+            int hours = seconds / 3600;
+            int minutes = (seconds % 3600) / 60;
+            int secs = seconds % 60;
+            
+            if (hours > 0)
+                return $"{hours}h {minutes}m {secs}s";
+            else if (minutes > 0)
+                return $"{minutes}m {secs}s";
+            else
+                return $"{secs}s";
         }
     }
 }

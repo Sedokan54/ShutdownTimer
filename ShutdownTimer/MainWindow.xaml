@@ -4,7 +4,7 @@
         xmlns:ui="http://schemas.modernwpf.com/2019"
         xmlns:tb="http://www.hardcodet.net/taskbar"
         ui:WindowHelper.UseModernWindowStyle="True"
-        Title="Shutdown Timer" Height="550" Width="420"
+        Title="Shutdown Timer" Height="580" Width="420"
         ResizeMode="CanMinimize"
         StateChanged="Window_StateChanged">
 
@@ -71,6 +71,13 @@
         <GroupBox Grid.Row="2" Header="Remaining Time" Margin="0,0,0,20" 
                   x:Name="CountdownPanel" Visibility="Collapsed">
             <StackPanel Margin="20" HorizontalAlignment="Center">
+                <!-- Time info - moved up -->
+                <TextBlock x:Name="txtTimeInfo" 
+                          Text="Timer running"
+                          HorizontalAlignment="Center" 
+                          FontSize="12" Margin="0,0,0,10"
+                          Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"/>
+                
                 <TextBlock x:Name="txtCountdown" Text="00:00:00" 
                           HorizontalAlignment="Center" FontSize="48" 
                           FontWeight="Bold" FontFamily="Consolas"
@@ -79,28 +86,29 @@
                 <!-- Progress indicator -->
                 <ProgressBar x:Name="progressTimer" 
                             Minimum="0" Maximum="100" Value="100"
-                            Height="8" Margin="0,15,0,0"
+                            Height="8" Margin="0,15,0,15"
                             Background="{DynamicResource SystemControlBackgroundBaseLowBrush}"
                             Foreground="{DynamicResource SystemAccentBrush}"/>
                 
-                <!-- Time info -->
-                <TextBlock x:Name="txtTimeInfo" 
-                          Text="Timer started"
-                          HorizontalAlignment="Center" 
-                          FontSize="14" Margin="0,10,0,0"
-                          Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"/>
+                <!-- Cancel button in countdown panel -->
+                <Button x:Name="btnCancelInCountdown" Content="Cancel Timer" 
+                        Width="120" Height="35" Click="BtnCancel_Click"
+                        Background="{DynamicResource SystemControlBackgroundBaseLowBrush}"
+                        Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"
+                        BorderBrush="{DynamicResource SystemControlForegroundBaseMediumBrush}"/>
             </StackPanel>
         </GroupBox>
 
-        <!-- Control Buttons -->
+        <!-- Control Buttons (Only shown when Duration Panel is visible) -->
         <StackPanel Grid.Row="3" Orientation="Horizontal" 
-                    HorizontalAlignment="Center" Margin="0,0,0,20">
+                    HorizontalAlignment="Center" Margin="0,10,0,30"
+                    x:Name="ControlButtonsPanel" Visibility="Visible">
             <Button x:Name="btnStart" Content="Start" 
                     Width="100" Margin="5" Click="BtnStart_Click"
                     Style="{StaticResource AccentButtonStyle}"/>
             <Button x:Name="btnCancel" Content="Cancel" 
                     Width="100" Margin="5" Click="BtnCancel_Click"
-                    IsEnabled="False"/>
+                    IsEnabled="False" Visibility="Visible"/>
         </StackPanel>
 
         <!-- System Tray Icon -->

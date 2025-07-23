@@ -157,3 +157,4 @@ C:\Users\kaanf\OneDrive\Masaüstü\ShutdownTimer\ShutdownTimer\obj\Debug\net6.0-
 C:\Users\kaanf\OneDrive\Masaüstü\ShutdownTimer\ShutdownTimer\obj\Debug\net6.0-windows\ShutdownTimer.csproj.GenerateResource.cache
 C:\Users\kaanf\OneDrive\Masaüstü\ShutdownTimer\ShutdownTimer\obj\Debug\net6.0-windows\en\ShutdownTimer.resources.cs
 C:\Users\kaanf\OneDrive\Masaüstü\ShutdownTimer\ShutdownTimer\obj\Debug\net6.0-windows\en\ShutdownTimer.resources.dll
+C:\Users\kaanf\OneDrive\Masaüstü\ShutdownTimer\ShutdownTimer\obj\Debug\net6.0-windows\ShutdownTimer.sourcelink.json

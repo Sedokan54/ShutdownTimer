@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ShutdownTimer")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute(" ")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd44b4a2c20bb1d0606403f6b360a5923f23d63b")]
 [assembly: System.Reflection.AssemblyProductAttribute("ShutdownTimer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ShutdownTimer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
