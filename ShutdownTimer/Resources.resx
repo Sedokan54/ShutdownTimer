@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+  <!-- Turkish Resources (Default) -->
+  <data name="Title" xml:space="preserve">
+    <value>Zamanlayıcı</value>
+  </data>
+  <data name="SelectAction" xml:space="preserve">
+    <value>İşlem Seçin</value>
+  </data>
+  <data name="Shutdown" xml:space="preserve">
+    <value>Bilgisayarı Kapat</value>
+  </data>
+  <data name="Restart" xml:space="preserve">
+    <value>Yeniden Başlat</value>
+  </data>
+  <data name="Sleep" xml:space="preserve">
+    <value>Uyku Moduna Al</value>
+  </data>
+  <data name="SetDuration" xml:space="preserve">
+    <value>Süre Ayarla</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>Saat</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>Dakika</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>Saniye</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Başlat</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>İptal</value>
+  </data>
+  <data name="RemainingTime" xml:space="preserve">
+    <value>Kalan Süre</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Göster</value>
+  </data>
+  <data name="CancelTimer" xml:space="preserve">
+    <value>İptal Et</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Çıkış</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Uyarı</value>
+  </data>
+  <data name="PleaseEnterValidTime" xml:space="preserve">
+    <value>Lütfen geçerli bir süre girin!</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Hata</value>
+  </data>
+  <data name="OperationFailed" xml:space="preserve">
+    <value>İşlem gerçekleştirilemedi: {0}</value>
+  </data>
+  <data name="TimerCancelled" xml:space="preserve">
+    <value>Zamanlayıcı iptal edildi.</value>
+  </data>
+  <data name="RunningInBackground" xml:space="preserve">
+    <value>Uygulama sistem tepsisinde çalışmaya devam ediyor.</value>
+  </data>
+  <data name="ActiveTimerConfirm" xml:space="preserve">
+    <value>Aktif bir zamanlayıcı var. Çıkmak istediğinize emin misiniz?</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Onay</value>
+  </data>
+  <data name="TimerStarted" xml:space="preserve">
+    <value>Zamanlayıcı başlatıldı. {0} işlemi {1} saniye sonra gerçekleştirilecek.</value>
+  </data>
+  <data name="ShutdownAction" xml:space="preserve">
+    <value>Bilgisayar kapatma</value>
+  </data>
+  <data name="RestartAction" xml:space="preserve">
+    <value>Yeniden başlatma</value>
+  </data>
+  <data name="SleepAction" xml:space="preserve">
+    <value>Uyku moduna alma</value>
+  </data>
+</root>
