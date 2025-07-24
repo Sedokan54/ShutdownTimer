@@ -16,11 +16,11 @@ if %ERRORLEVEL% EQU 0 (
     echo Executable location: bin\Release\net6.0-windows\win-x64\publish\ShutdownTimer.exe
     echo ================================
     
-    REM Copy executable to root for easy access
-    copy "bin\Release\net6.0-windows\win-x64\publish\ShutdownTimer.exe" "ShutdownTimer.exe"
+    REM Copy executable to root for easy access with user-friendly name
+    copy "bin\Release\net6.0-windows\win-x64\publish\ShutdownTimer.exe" "Shutdown Timer.exe"
     
     echo.
-    echo ShutdownTimer.exe is ready to use!
+    echo Shutdown Timer.exe is ready to use!
     echo You can now run it directly without any dependencies.
 ) else (
     echo.
