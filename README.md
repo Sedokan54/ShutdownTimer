@@ -7,9 +7,6 @@ A modern, user-friendly Windows application for scheduling system shutdown, rest
 ![Shutdown Timer Interface](screenshots/main-interface.png)
 *Main interface showing countdown timer and system action selection*
 
-![System Tray Integration](screenshots/system-tray.png)
-*System tray integration with context menu*
-
 ## ✨ Features
 
 - **🔄 Multiple System Actions**: Support for shutdown, restart, and sleep mode
