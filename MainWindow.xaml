@@ -104,10 +104,12 @@
                     HorizontalAlignment="Center" Margin="0,10,0,30"
                     x:Name="ControlButtonsPanel" Visibility="Visible">
             <Button x:Name="btnStart" Content="Start" 
-                    Width="100" Margin="5" Click="BtnStart_Click"
+                    Width="80" Margin="5" Click="BtnStart_Click"
                     Style="{StaticResource AccentButtonStyle}"/>
+            <Button x:Name="btnReset" Content="Reset" 
+                    Width="80" Margin="5" Click="BtnReset_Click"/>
             <Button x:Name="btnCancel" Content="Cancel" 
-                    Width="100" Margin="5" Click="BtnCancel_Click"
+                    Width="80" Margin="5" Click="BtnCancel_Click"
                     IsEnabled="False" Visibility="Visible"/>
         </StackPanel>
 

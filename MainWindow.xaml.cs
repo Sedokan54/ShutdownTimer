@@ -222,6 +222,18 @@ namespace ShutdownTimer
             CancelTimer();
         }
 
+        private void BtnReset_Click(object sender, RoutedEventArgs e)
+        {
+            ResetTimeInputs();
+        }
+
+        private void ResetTimeInputs()
+        {
+            nbHours.Value = 0;
+            nbMinutes.Value = 0;
+            nbSeconds.Value = 0;
+        }
+
         private void CancelTimer()
         {
             if (isTimerRunning)
