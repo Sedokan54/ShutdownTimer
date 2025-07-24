@@ -1,89 +1,89 @@
-# Shutdown Timer
+# 🕐 Shutdown Timer
 
-A modern, user-friendly Windows application that allows you to schedule system shutdown, restart, or sleep operations with a customizable countdown timer.
+Modern, kullanıcı dostu Windows uygulaması ile bilgisayarınızı zamanlayarak kapatın, yeniden başlatın veya uyku moduna alın.
 
-## Features
+## ✨ Özellikler
 
-- **Multiple System Actions**: Support for shutdown, restart, and sleep mode
-- **Flexible Timer**: Set countdown time using hours, minutes, and seconds
-- **Visual Countdown**: Real-time countdown display with progress bar
-- **System Tray Integration**: Minimize to system tray and continue running in background
-- **Warning System**: Visual and audio warnings in the final seconds
-- **Modern UI**: Clean, modern interface using ModernWPF styling
-- **Theme Support**: Automatically adapts to system theme (Light/Dark)
+- **🔄 Çoklu Sistem İşlemleri**: Kapatma, yeniden başlatma ve uyku modu desteği
+- **⏰ Esnek Zamanlayıcı**: Saat, dakika ve saniye cinsinden zamanlama
+- **📊 Görsel Geri Sayım**: Gerçek zamanlı geri sayım ve ilerleme çubuğu
+- **📋 Sistem Tepsisi Entegrasyonu**: Sistem tepsisinde çalışma ve arka plan desteği
+- **⚠️ Uyarı Sistemi**: Son sanyelerde görsel ve sesli uyarılar
+- **🎨 Modern Arayüz**: ModernWPF ile temiz, modern tasarım
+- **🌙 Tema Desteği**: Sistem temasına otomatik uyum (Açık/Koyu)
+- **🚀 Tek Tık Çalıştırma**: Kurulum gerektirmez, çift tıkla çalışır
+- **📦 Taşınabilir**: Tüm bağımlılıklar dahil, tek dosya
 
-## Screenshots
+## 🚀 Hızlı Başlangıç
 
-### Main Interface
-The application provides an intuitive interface for setting up your shutdown timer:
+### Tek Tıkla Kullanım
+1. `build-release.bat` dosyasını çalıştırın (sadece ilk sefer)
+2. Oluşan `ShutdownTimer.exe` dosyasını çift tıklayın
+3. Kullanıma hazır! ✅
 
-- Select your desired action (Shutdown, Restart, or Sleep)
-- Set the countdown duration
-- Start the timer and monitor progress
+### Manuel İndirme
+1. [Releases](../../releases) sayfasından en son sürümü indirin
+2. `ShutdownTimer.exe` dosyasını istediğiniz klasöre kopyalayın
+3. Çift tıklayarak çalıştırın
 
-### System Tray
-When minimized, the application continues running in the system tray with:
-- Quick access menu
-- Timer status display
-- Cancel option
+## 📋 Sistem Gereksinimleri
 
-## Requirements
+- Windows 10/11 (64-bit)
+- Herhangi bir ek yazılım gerektirmez!
 
-- Windows 10/11
-- .NET 6.0 or later
+## 📖 Kullanım
 
-## Installation
+1. **🎯 İşlem Seçin**: Kapatma, Yeniden Başlatma veya Uyku modu arasından seçim yapın
+2. **⏱️ Süre Belirleyin**: Saat, dakika ve saniye kutularını kullanın
+3. **▶️ Başlatın**: "Başlat" butonuna tıklayarak geri sayımı başlatın
+4. **👀 Takip Edin**: Gerçek zamanlı geri sayım ve ilerleme çubuğunu izleyin
+5. **❌ İptal Edin**: "İptal" butonu veya sistem tepsisi menüsüyle durdurun
 
-1. Download the latest release from the [Releases](../../releases) page
-2. Extract the files to your desired location
-3. Run `ShutdownTimer.exe`
+### ⚠️ Uyarı Sistemi
 
-## Usage
+- **30 saniye**: Turuncu geri sayım rengi
+- **10 saniye**: Kırmızı yanıp sönen geri sayım
+- **🔊 Ses Uyarıları**: Son 10 saniyede 2 saniyede bir ses uyarısı
+- **💬 Bildirimler**: Önemli anlarda sistem tepsisi bildirimleri
 
-1. **Select Action**: Choose between Shutdown, Restart, or Sleep mode
-2. **Set Duration**: Use the number boxes to set hours, minutes, and seconds
-3. **Start Timer**: Click the "Start" button to begin countdown
-4. **Monitor Progress**: Watch the real-time countdown and progress bar
-5. **Cancel Anytime**: Use the "Cancel" button or system tray menu to stop the timer
+## 🛠️ Kaynak Koddan Derleme
 
-### Warning System
+### Gereksinimler
+- Visual Studio 2022 veya üzeri
+- .NET 6.0 SDK veya üzeri
 
-- **30 seconds**: Orange countdown color
-- **10 seconds**: Red countdown with flashing effect
-- **Sound alerts**: Audio warnings every 2 seconds in final 10 seconds
-- **Notifications**: System tray balloon tips at key moments
+### Derleme Adımları
+1. Bu repository'yi klonlayın
+2. `ShutdownTimer.sln` dosyasını Visual Studio'da açın
+3. NuGet paketlerini geri yükleyin
+4. Çözümü derleyin (Ctrl+Shift+B)
 
-## Building from Source
+### Hızlı Derleme
+```bash
+# Otomatik derleme için
+./build-release.bat
+```
 
-### Prerequisites
-- Visual Studio 2022 or later
-- .NET 6.0 SDK or later
+### Bağımlılıklar
+- **ModernWpf**: Modern UI tasarımı
+- **Hardcodet.NotifyIcon.Wpf**: Sistem tepsisi işlevselliği
 
-### Build Steps
-1. Clone this repository
-2. Open `src/ShutdownTimer.sln` in Visual Studio
-3. Restore NuGet packages
-4. Build the solution (Ctrl+Shift+B)
-
-### Dependencies
-- **ModernWpf**: Modern UI styling
-- **Hardcodet.NotifyIcon.Wpf**: System tray functionality
-
-## Technical Details
+## 🔧 Teknik Detaylar
 
 - **Framework**: .NET 6.0 WPF
-- **UI Framework**: ModernWPF for modern Windows 11 styling
-- **Architecture**: MVVM-friendly single window application
-- **Threading**: Async/await pattern for non-blocking operations
+- **UI Framework**: ModernWPF (Windows 11 tarzı tasarım)
+- **Mimari**: MVVM dostu tek pencere uygulaması
+- **Threading**: Async/await ile engellemeyen işlemler
+- **Deployment**: Self-contained, tek dosya çalıştırılabilir
 
-## License
+## 📄 Lisans
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Bu proje MIT Lisansı altında lisanslanmıştır - detaylar için [LICENSE](LICENSE) dosyasına bakın.
 
-## Contributing
+## 🤝 Katkı
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Katkılarınızı bekliyoruz! Lütfen Pull Request göndermekte çekinmeyin.
 
-## Support
+## 💬 Destek
 
-If you encounter any issues or have feature requests, please create an issue on the [Issues](../../issues) page.
+Herhangi bir sorun yaşarsanız veya özellik talebiniz varsa, [Issues](../../issues) sayfasında konu açabilirsiniz.
