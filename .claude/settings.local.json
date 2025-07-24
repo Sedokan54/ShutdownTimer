@@ -13,7 +13,8 @@
       "Bash(git config:*)",
       "Bash(git commit:*)",
       "Bash(git filter-branch:*)",
-      "Bash(FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch \"\"Shutdown Timer.exe\"\"' --prune-empty --tag-name-filter cat -- --all)"
+      "Bash(FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch \"\"Shutdown Timer.exe\"\"' --prune-empty --tag-name-filter cat -- --all)",
+      "Bash(git push:*)"
     ],
     "deny": []
   }
