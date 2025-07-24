@@ -17,15 +17,17 @@ A modern, user-friendly Windows application for scheduling system shutdown, rest
 
 ## 🚀 Quick Start
 
-### One-Click Usage
-1. Run `build-release.bat` (only needed once)
-2. Double-click the generated `Shutdown Timer.exe`
-3. Ready to use! ✅
+### 📥 Download Ready-to-Use (Recommended)
+1. Go to the [Releases](../../releases) page
+2. Download `Shutdown Timer.exe` from the latest release
+3. Copy to your desired folder
+4. Double-click to run - **No installation required!** ✅
 
-### Manual Download
-1. Download the latest release from the [Releases](../../releases) page
-2. Copy `Shutdown Timer.exe` to your desired folder
-3. Double-click to run
+### 🛠️ Build from Source (For Developers)
+1. Clone this repository
+2. Run `build-release.bat` 
+3. Double-click the generated `Shutdown Timer.exe`
+4. Ready to use! ✅
 
 ## 📋 System Requirements
 
