@@ -115,6 +115,7 @@
         <tb:TaskbarIcon x:Name="TrayIcon" 
                         ToolTipText="Shutdown Timer"
                         TrayMouseDoubleClick="TrayIcon_TrayMouseDoubleClick"
+                        IconSource="assets/icons/app.ico"
                         Grid.Row="4"
                         Visibility="Visible">
             <tb:TaskbarIcon.ContextMenu>
